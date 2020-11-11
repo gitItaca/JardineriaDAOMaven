@@ -29,7 +29,7 @@ public class App {
 			System.out.println(e.getMessage());
 		}
 		try {
-			cDao.save(OperacionesCliente.crearCliente(7, "Nacho", "Brian", "777856242"));
+			cDao.save(OperacionesCliente.crearCliente(7, "Nacho", "Brian", "787856242"));
 			cDao.save(OperacionesCliente.crearCliente(51, "Sonia", "Ros", "562523552"));
 			cDao.save(OperacionesCliente.crearCliente(52, "Sonia", "Ros", "662523552"));
 		} catch (Exception e) {
