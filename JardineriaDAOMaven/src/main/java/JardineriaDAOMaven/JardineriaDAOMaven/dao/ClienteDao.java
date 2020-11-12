@@ -39,8 +39,10 @@ public class ClienteDao implements Dao<Cliente>{
 		clientes.get(cliente.getCodigo_cliente()).setCodigo_postal(cliente.getCodigo_postal());
 		clientes.get(cliente.getCodigo_cliente()).setCodigo_empleado_rep_ventas(cliente.getCodigo_empleado_rep_ventas());
 		clientes.get(cliente.getCodigo_cliente()).setLimite_credito(cliente.getLimite_credito());
-		
-		//clientes.add(cliente);
+		clientes.get(cliente.getCodigo_cliente()).setTipoDocumentacion(cliente.getTipoDocumentacion());
+		clientes.get(cliente.getCodigo_cliente()).setDNI(cliente.getDNI());
+		clientes.get(cliente.getCodigo_cliente()).setEmail(cliente.getEmail());
+		clientes.get(cliente.getCodigo_cliente()).setPassword(cliente.getPassword());
 	}
 
 	public void delete(Cliente cliente) {

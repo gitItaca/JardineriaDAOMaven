@@ -2,6 +2,21 @@ package JardineriaDAOMaven.JardineriaDAOMaven.model;
 
 public class Cliente {
 
+	public enum Documentacion {
+		DNI("Documento Nacional de Identidad."),
+		NIE("Numero de Identidad de Extranjero.");
+		
+		private final String nombreDocumento;
+
+		private Documentacion(String nombreDocumento) {
+			this.nombreDocumento = nombreDocumento;
+		}
+
+		public String getNombreDocumento() {
+			return nombreDocumento;
+		}			
+	}//FIN enum
+	
 	private int codigo_cliente;
 	private String nombre_cliente;
 	private String nombre_contacto;
@@ -15,7 +30,13 @@ public class Cliente {
 	private String pais;
 	private String codigo_postal;
 	private int codigo_empleado_rep_ventas;
-	private double limite_credito;
+	private double limite_credito;	
+	
+	private Documentacion tipoDocumentacion;
+	private String DNI;
+	private String email;
+	private String password;
+	
 	
 //CONSTRUCTOR
 	public Cliente(int codigo_cliente, String nombre_cliente, String nombre_contacto, String apellido_contacto,
@@ -45,6 +66,16 @@ public class Cliente {
 		this.nombre_contacto = nombre_contacto;
 		this.apellido_contacto = apellido_contacto;
 		this.telefono = telefono;
+	}
+	
+	public Cliente(int codigo_cliente, Documentacion tipoDocumentacion, String DNI,
+			String email, String password) {
+		super();
+		this.codigo_cliente = codigo_cliente;
+		this.tipoDocumentacion = tipoDocumentacion;
+		this.DNI = DNI;
+		this.email = email;
+		this.password = password;
 	}
 
 //GETTERS AND SETTERS
@@ -146,7 +177,34 @@ public class Cliente {
 		this.limite_credito = limite_credito;
 	}
 
-//METODOS
+	public Documentacion getTipoDocumentacion() {
+		return tipoDocumentacion;
+	}
+	public void setTipoDocumentacion(Documentacion tipoDocumentacion) {
+		this.tipoDocumentacion = tipoDocumentacion;
+	}
+
+	public String getDNI() {
+		return DNI;
+	}
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [codigo_cliente=" + codigo_cliente + ", nombre_cliente=" + nombre_cliente + ", nombre_contacto="
@@ -154,7 +212,8 @@ public class Cliente {
 				+ fax + ", linea_direccion1=" + linea_direccion1 + ", linea_direccion2=" + linea_direccion2
 				+ ", ciudad=" + ciudad + ", region=" + region + ", pais=" + pais + ", codigo_postal=" + codigo_postal
 				+ ", codigo_empleado_rep_ventas=" + codigo_empleado_rep_ventas + ", limite_credito=" + limite_credito
-				+ "]";
+				+ ", tipoDocumentacion=" + tipoDocumentacion + ", DNI=" + DNI + ", email=" + email + ", password="
+				+ password + "]";
 	}
 	
 	

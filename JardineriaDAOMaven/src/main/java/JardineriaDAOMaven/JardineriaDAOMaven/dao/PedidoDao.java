@@ -33,8 +33,6 @@ public class PedidoDao implements Dao<Pedido>{
 		pedidos.get(pedido.getCodigo_pedido()).setEstado(pedido.getEstado());
 		pedidos.get(pedido.getCodigo_pedido()).setComentarios(pedido.getComentarios());
 		pedidos.get(pedido.getCodigo_pedido()).setCodigo_cliente(pedido.getCodigo_cliente());
-		
-		//pedidos.add(pedido);
 	}
 
 	public void delete(Pedido pedido) {
