@@ -59,23 +59,28 @@ public class Cliente {
 		this.limite_credito = limite_credito;
 	}
 	
-	public Cliente(int codigo_cliente, String nombre_contacto, String apellido_contacto,
+	/*public Cliente(int codigo_cliente, String nombre_contacto, String apellido_contacto,
 			String telefono) {
 		super();
 		this.codigo_cliente = codigo_cliente;
 		this.nombre_contacto = nombre_contacto;
 		this.apellido_contacto = apellido_contacto;
 		this.telefono = telefono;
-	}
+	}*/
 	
-	public Cliente(int codigo_cliente, Documentacion tipoDocumentacion, String DNI,
+	public Cliente(int codigo_cliente, String nombre_contacto, String apellido_contacto,
+			String telefono, Documentacion tipoDocumentacion, String DNI,
 			String email, String password) {
 		super();
 		this.codigo_cliente = codigo_cliente;
+		this.nombre_contacto = nombre_contacto;
+		this.apellido_contacto = apellido_contacto;
+		this.telefono = telefono;
 		this.tipoDocumentacion = tipoDocumentacion;
 		this.DNI = DNI;
 		this.email = email;
 		this.password = password;
+		
 	}
 
 //GETTERS AND SETTERS

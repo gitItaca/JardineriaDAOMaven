@@ -17,6 +17,31 @@ public class App {
 		ClienteDao cDao = new ClienteDao();
 		
 		try {
+			cDao.save(OperacionesCliente.crearCliente(11, "Paco", "Galban", "654321321", 
+					Cliente.Documentacion.DNI, "18565412A", "prueba", "prueba"));
+			cDao.save(OperacionesCliente.crearCliente(12, "Sonia", "Galban", "650321321", 
+					Cliente.Documentacion.DNI, "185651412A", "prueba", "prueba"));
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			cDao.save(OperacionesCliente.crearCliente(13, "Fed", "Fod", "954321321", 
+					Cliente.Documentacion.DNI, "185651411", "prueba", "prueba"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			cDao.save(OperacionesCliente.crearCliente(13, "Fed", "Fod", "954321321", 
+					Cliente.Documentacion.DNI, "18565C41C", "prueba", "prueba"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		//PRUEBAS PRACTICA 2
+		/*try {
 			cDao.save(OperacionesCliente.crearCliente(50, "Manuel", "Ros", "607525252"));
 			cDao.save(OperacionesCliente.crearCliente(10, "Victor", "Pot", "222525252"));
 			cDao.save(OperacionesCliente.crearCliente(50, "Sonia", "Ros", "562525252"));
@@ -70,7 +95,7 @@ public class App {
 		}
 		for (Pedido pedido : pDao.getAll()) {
 			System.out.println(pedido);
-		}
+		}*/
 	}//FIN MAIN
 
 }
