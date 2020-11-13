@@ -11,7 +11,6 @@ public class Cliente {
 		private Documentacion(String nombreDocumento) {
 			this.nombreDocumento = nombreDocumento;
 		}
-
 		public String getNombreDocumento() {
 			return nombreDocumento;
 		}			
@@ -58,7 +57,7 @@ public class Cliente {
 		this.codigo_empleado_rep_ventas = codigo_empleado_rep_ventas;
 		this.limite_credito = limite_credito;
 	}
-	
+	//Constructor practica2
 	/*public Cliente(int codigo_cliente, String nombre_contacto, String apellido_contacto,
 			String telefono) {
 		super();

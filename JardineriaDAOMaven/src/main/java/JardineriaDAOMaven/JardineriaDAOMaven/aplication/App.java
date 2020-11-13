@@ -16,7 +16,7 @@ public class App {
 
 		ClienteDao cDao = new ClienteDao();
 		
-		try {
+		try { //Bien + Numero de digitos del DNI incorrectos.
 			cDao.save(OperacionesCliente.crearCliente(11, "Paco", "Galban", "654321321", 
 					Cliente.Documentacion.DNI, "18565412A", "prueba", "prueba"));
 			cDao.save(OperacionesCliente.crearCliente(12, "Sonia", "Galban", "650321321", 
@@ -25,16 +25,39 @@ public class App {
 			System.out.println(e.getMessage());
 		}
 		
-		try {
+		try { //El ultimo digito tiene que ser una letra, la 'ñ' esta excluida.
 			cDao.save(OperacionesCliente.crearCliente(13, "Fed", "Fod", "954321321", 
 					Cliente.Documentacion.DNI, "185651411", "prueba", "prueba"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
-		try {
-			cDao.save(OperacionesCliente.crearCliente(13, "Fed", "Fod", "954321321", 
+		try { //El digito nº 6 tiene que ser un numero.
+			cDao.save(OperacionesCliente.crearCliente(14, "Fed", "Fod", "954321321", 
 					Cliente.Documentacion.DNI, "18565C41C", "prueba", "prueba"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {  //Bien + El primer digito y el ultimo tienen que ser una letra, la 'ñ' esta excluida.
+			cDao.save(OperacionesCliente.crearCliente(15, "Tod", "Fod", "984321321", 
+					Cliente.Documentacion.NIE, "B8565141C", "prueba", "prueba"));
+			cDao.save(OperacionesCliente.crearCliente(16, "Melissa", "Troc", "984111321", 
+					Cliente.Documentacion.NIE, "18565141C", "prueba", "prueba"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try { //El digito nº 6 tiene que ser un numero.
+			cDao.save(OperacionesCliente.crearCliente(16, "Fed", "Fod", "954321321", 
+					Cliente.Documentacion.NIE, "E8565C41C", "prueba", "prueba"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try { //Numero de digitos del NIE incorrectos.
+			cDao.save(OperacionesCliente.crearCliente(16, "Fed", "Fod", "954321321", 
+					Cliente.Documentacion.NIE, "E18565C41C", "prueba", "prueba"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
