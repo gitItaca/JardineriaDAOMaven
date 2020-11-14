@@ -14,7 +14,7 @@ public class App {
 
 	public static void main(String[] args) {
 
-		ClienteDao cDao = new ClienteDao();
+		/*ClienteDao cDao = new ClienteDao();
 		
 		try { //Bien + Numero de digitos del DNI incorrectos.
 			cDao.save(OperacionesCliente.crearCliente(11, "Paco", "Galban", "654321321", 
@@ -67,7 +67,7 @@ public class App {
 					Cliente.Documentacion.NIE, "E1856541C", "fedgmail.com", "prueba"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
+		}*/
 		
 		
 		//PRUEBAS PRACTICA 2

@@ -5,6 +5,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import JardineriaDAOMaven.JardineriaDAOMaven.dao.ClienteDao;
+import JardineriaDAOMaven.JardineriaDAOMaven.exceptions.ClientNotFoundException;
+import JardineriaDAOMaven.JardineriaDAOMaven.exceptions.WrongFechaMinimaPedidoException;
 import JardineriaDAOMaven.JardineriaDAOMaven.exceptions.WrongOrderDayCreationException;
 import JardineriaDAOMaven.JardineriaDAOMaven.model.Cliente;
 import JardineriaDAOMaven.JardineriaDAOMaven.model.Pedido;
@@ -22,12 +24,12 @@ public class OperacionesPedido {
 		if((f_pedido.get(Calendar.DAY_OF_MONTH) == fechaActual.get(Calendar.DAY_OF_MONTH)) 
 				&& (f_pedido.get(Calendar.MONTH) == fechaActual.get(Calendar.MONTH))
 				&& (f_pedido.get(Calendar.YEAR) == f_pedido.get(Calendar.YEAR))) {			
-		}else throw new WrongOrderDayCreationException(); //"La fecha del pedido tiene que ser el dia de hoy."
+		}else throw new WrongOrderDayCreationException(); 	//"La fecha del pedido tiene que ser el dia de hoy."
 		//Comprobar la fecha esperada del pedido.
 		fechaMinimaEsperada.add(Calendar.DAY_OF_MONTH, 3);
 		//System.out.println(fechaActual.get(Calendar.DAY_OF_MONTH) + " today - " + f_esperada.get(Calendar.DAY_OF_MONTH) + " - " + fechaMinimaEsperada.get(Calendar.DAY_OF_MONTH));
 		if(f_esperada.before(fechaMinimaEsperada)) {
-			throw new Exception("La fecha de entrega esperada no puede ser anterior a tres d�as despu�s de la fecha de creaci�n.");
+			throw new WrongFechaMinimaPedidoException(); 	//"La fecha de entrega esperada no puede ser anterior a tres dias despues de la fecha de creacion."
 		}		
 		fechaMinimaEsperada.add(Calendar.DAY_OF_MONTH, -3);
 		//Comprobar el codigo del cliente.
@@ -40,7 +42,7 @@ public class OperacionesPedido {
 			}
 		}
 		if(existeCliente == false) {
-			throw new Exception("El cliente del pedido no existe en la base de datos.");
+			throw new ClientNotFoundException(); 			//"El cliente del pedido no existe en la base de datos."
 		}
 
 		return new Pedido(id_pedido, f_pedido, f_esperada, f_entrega, id_cliente);
